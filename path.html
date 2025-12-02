@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Path: Professional Node.js Developer - ServerCasts</title>
+    
+    <!-- Google Fonts: Inter for UI, JetBrains Mono for Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7', // Primary Brand Color
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                        accent: {
+                            DEFAULT: '#22d3ee',
+                            glow: 'rgba(34, 211, 238, 0.5)'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+        
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Timeline Connector Line */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            bottom: -2rem;
+            left: 24px; /* Center of the icon (w-12 = 48px / 2 = 24px) */
+            width: 2px;
+            background: #1e293b;
+            z-index: 0;
+        }
+        .timeline-item:last-child .timeline-line::before {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-300 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex-shrink-0 flex items-center gap-3 cursor-pointer group">
+                    <div class="w-10 h-10 bg-gradient-to-br from-brand-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-server text-white text-lg"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-white group-hover:text-brand-400 transition-colors">
+                        Server<span class="text-brand-400">Casts</span>
+                    </span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-sm font-medium hover:text-white transition-colors">Series</a>
+                    <a href="#" class="text-sm font-medium hover:text-white transition-colors">Topics</a>
+                    <a href="#" class="text-sm font-medium text-white transition-colors border-b-2 border-brand-500">Pathways</a>
+                    <a href="#" class="text-sm font-medium hover:text-white transition-colors">Forum</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#" class="text-sm font-medium hover:text-white transition-colors">Log In</a>
+                    <a href="#" class="px-5 py-2.5 text-sm font-semibold text-white bg-brand-600 rounded-lg hover:bg-brand-500 transition-all shadow-lg shadow-brand-900/50">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Path Hero -->
+    <div class="relative pt-32 pb-16 bg-slate-900 border-b border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-8 items-start">
+                <!-- Large Icon -->
+                <div class="flex-shrink-0">
+                    <div class="w-24 h-24 bg-brand-900/50 rounded-2xl flex items-center justify-center border border-brand-500/30 shadow-2xl shadow-brand-500/10">
+                        <i class="fa-brands fa-node text-5xl text-brand-400"></i>
+                    </div>
+                </div>
+                <!-- Details -->
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-xs font-bold text-brand-400 uppercase tracking-widest">Career Path</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-800 text-slate-400 border border-slate-700">Intermediate</span>
+                    </div>
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-4">The Professional Node.js Developer</h1>
+                    <p class="text-lg text-slate-400 mb-6 leading-relaxed">
+                        Go beyond simple express apps. This path takes you through the entire lifecycle of building robust, scalable backend systems. You will master streams, buffers, testing, and deployment.
+                    </p>
+                    
+                    <!-- Stats -->
+                    <div class="flex items-center gap-6 text-sm text-slate-500 mb-8">
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-film"></i> 45 Lessons</div>
+                        <div class="flex items-center gap-2"><i class="fa-regular fa-clock"></i> 12 Hours</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-certificate"></i> Certificate Included</div>
+                    </div>
+
+                    <!-- Progress Bar (Dummy State) -->
+                    <div class="bg-slate-800 rounded-full h-3 w-full max-w-md relative overflow-hidden mb-2">
+                        <div class="bg-brand-500 h-full rounded-full w-1/4 absolute top-0 left-0"></div>
+                    </div>
+                    <div class="text-xs text-slate-400 mb-6">25% Complete</div>
+
+                    <button class="px-6 py-3 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-100 transition-colors shadow-lg flex items-center gap-2">
+                        <i class="fa-solid fa-play"></i> Resume Learning
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Curriculum Timeline -->
+    <div class="py-16 bg-slate-950 min-h-screen">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-xl font-bold text-white mb-8 border-b border-slate-800 pb-4">Curriculum</h2>
+
+            <!-- Module 1: Completed -->
+            <div class="relative pl-0 timeline-item group">
+                <div class="timeline-line relative flex gap-6 pb-12">
+                    <!-- Status Icon -->
+                    <div class="relative z-10 flex-shrink-0 w-12 h-12 rounded-full bg-green-500/10 border-2 border-green-500 flex items-center justify-center">
+                        <i class="fa-solid fa-check text-green-500"></i>
+                    </div>
+                    <!-- Content Card -->
+                    <div class="flex-1 bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-green-500/50 transition-colors cursor-pointer shadow-lg">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-white group-hover:text-green-400 transition-colors">Node.js Internals & Architecture</h3>
+                            <span class="text-xs font-mono text-green-500 bg-green-500/10 px-2 py-1 rounded">Completed</span>
+                        </div>
+                        <p class="text-sm text-slate-400 mb-4">Understand the Event Loop, libuv, and how V8 compiles JavaScript.</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between text-xs text-slate-500 p-2 rounded hover:bg-slate-800 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <i class="fa-solid fa-circle-play text-green-500"></i>
+                                    <span class="text-slate-300">The Event Loop Explained</span>
+                                </div>
+                                <span>12:04</span>
+                            </div>
+                            <div class="flex items-center justify-between text-xs text-slate-500 p-2 rounded hover:bg-slate-800 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <i class="fa-solid fa-circle-play text-green-500"></i>
+                                    <span class="text-slate-300">Blocking vs Non-Blocking I/O</span>
+                                </div>
+                                <span>08:45</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 2: In Progress -->
+            <div class="relative pl-0 timeline-item group">
+                <div class="timeline-line relative flex gap-6 pb-12">
+                    <!-- Status Icon -->
+                    <div class="relative z-10 flex-shrink-0 w-12 h-12 rounded-full bg-brand-500 text-white flex items-center justify-center shadow-lg shadow-brand-500/40 animate-pulse-slow">
+                        <span class="font-bold text-lg">2</span>
+                    </div>
+                    <!-- Content Card -->
+                    <div class="flex-1 bg-slate-900 border border-brand-500 rounded-xl p-6 shadow-xl shadow-brand-900/20 cursor-pointer">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">Streams & Buffers</h3>
+                            <span class="text-xs font-mono text-brand-400 bg-brand-500/10 px-2 py-1 rounded">In Progress</span>
+                        </div>
+                        <p class="text-sm text-slate-400 mb-4">Mastering data flow. How to handle large files without crashing memory.</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between text-xs text-slate-500 p-2 rounded hover:bg-slate-800 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <i class="fa-solid fa-circle-play text-green-500"></i>
+                                    <span class="text-slate-300">What is a Buffer?</span>
+                                </div>
+                                <span>06:30</span>
+                            </div>
+                            <div class="flex items-center justify-between text-xs text-slate-500 p-2 rounded bg-slate-800 border-l-2 border-brand-500 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <i class="fa-regular fa-circle-play text-brand-400"></i>
+                                    <span class="text-white font-medium">Readable & Writable Streams</span>
+                                </div>
+                                <span class="text-brand-400">Now Playing</span>
+                            </div>
+                            <div class="flex items-center justify-between text-xs text-slate-500 p-2 rounded hover:bg-slate-800 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <i class="fa-solid fa-lock text-slate-600"></i>
+                                    <span>Piping Streams</span>
+                                </div>
+                                <span>14:20</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 3: Locked -->
+            <div class="relative pl-0 timeline-item group opacity-75 hover:opacity-100 transition-opacity">
+                <div class="timeline-line relative flex gap-6 pb-12">
+                    <!-- Status Icon -->
+                    <div class="relative z-10 flex-shrink-0 w-12 h-12 rounded-full bg-slate-800 border-2 border-slate-700 text-slate-500 flex items-center justify-center">
+                        <span class="font-bold text-lg">3</span>
+                    </div>
+                    <!-- Content Card -->
+                    <div class="flex-1 bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition-colors cursor-not-allowed">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-slate-300">Testing Node Applications</h3>
+                            <span class="text-xs font-mono text-slate-500 bg-slate-800 px-2 py-1 rounded"><i class="fa-solid fa-lock mr-1"></i> Locked</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mb-4">Unit testing with Vitest, Integration testing with Supertest.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 4: Locked -->
+            <div class="relative pl-0 timeline-item group opacity-75 hover:opacity-100 transition-opacity">
+                <div class="timeline-line relative flex gap-6 pb-12">
+                    <!-- Status Icon -->
+                    <div class="relative z-10 flex-shrink-0 w-12 h-12 rounded-full bg-slate-800 border-2 border-slate-700 text-slate-500 flex items-center justify-center">
+                        <span class="font-bold text-lg">4</span>
+                    </div>
+                    <!-- Content Card -->
+                    <div class="flex-1 bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition-colors cursor-not-allowed">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-slate-300">Deployment & CI/CD</h3>
+                            <span class="text-xs font-mono text-slate-500 bg-slate-800 px-2 py-1 rounded"><i class="fa-solid fa-lock mr-1"></i> Locked</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mb-4">Dockerizing Node apps and setting up GitHub Actions.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center text-sm text-slate-600">
+                &copy; 2025 ServerCasts.com. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
